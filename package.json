@@ -1,0 +1,11 @@
+{
+  "name": "dotheysolveit",
+  "version": "1.0.0",
+  "description": "Letting true crime audiences tell each other whether the cases in documentaries are solved at the end.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
