@@ -1,4 +1,24 @@
-html, body {
-    padding: 20px;
-    font-family: 'Helvetica', sans-serif;
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: #e8eddf;
+    background: #242423;
 }
+
+h1, h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #e40617;
+    margin-bottom:0;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+
