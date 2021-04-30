@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { doTheySolveIt } from '../utils/api'
+import { TooManyResultsError } from '../errors/TooManyResultsError'
 
 const Form = styled.form`
   display: flex;
-  margin-top:50px;
+  margin:30px 0;
   align-self:center;
 `
 const Input = styled.input`
@@ -11,6 +14,7 @@ const Input = styled.input`
   font-family: 'Open Sans', sans-serif;
   border: 1px solid #CCCCCC;
   margin-right:10px;
+  width:250px;
 `
 
 const Button = styled.button`
@@ -28,13 +32,34 @@ const Button = styled.button`
   }
 `
 
-export default function Search()
+export default function Search({ setErrorMessage, setMatch, setSuggestions })
 {
   const [value, setValue] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(value)
+    setErrorMessage('')
+    setValue('')
+
+    doTheySolveIt(value)
+      .then(
+        resultSet => {
+          const { match, suggestions } = resultSet
+          setMatch(match)
+          setSuggestions(suggestions)
+        },
+        error => {
+          setErrorMessage(getErrorMessage(error))
+        }
+      )
+  }
+
+  const getErrorMessage = error => {
+    if (error instanceof TooManyResultsError) {
+      return 'Ahh! Too many results. Try a more specific search.'
+    }
+
+    return 'Something went wrong! Please try again later.'
   }
 
   return(
@@ -59,4 +84,10 @@ export default function Search()
       </Button>
     </Form>
   )
+}
+
+Search.propTypes = {
+  setErrorMessage: PropTypes.func.isRequired,
+  setMatch: PropTypes.func.isRequired,
+  setSuggestions: PropTypes.func.isRequired
 }
