@@ -4,7 +4,7 @@
   "description": "Letting true crime audiences tell each other whether the cases in documentaries are solved at the end.",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV='production' webpack",
+    "build": "cp config.dist.js config.js && NODE_ENV='production' webpack",
     "start": "webpack-dev-server"
   },
   "babel": {
