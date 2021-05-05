@@ -14,6 +14,7 @@ export class TmdbClient
   search = query => {
     return new Promise((resolve, reject) => {
       const endpoint = this.buildEndpoint('search/multi')
+
       fetch(`${endpoint}&query=${encodeURI(query)}`)
         .then(res => res.json())
         .then(results => {

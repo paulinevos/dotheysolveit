@@ -1,4 +1,4 @@
-import { movieDatabase as config } from '../../config'
+import { movieDatabase as config } from '../config'
 
 export class Title
 {

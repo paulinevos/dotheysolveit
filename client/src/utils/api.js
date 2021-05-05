@@ -1,4 +1,4 @@
-import { movieDatabase as config } from '../../config'
+import { movieDatabase as config } from '../config'
 import { TmdbClient } from './tmdbClient'
 import { Title } from '../value-objects/Title'
 import { TooManyResultsError } from '../errors/TooManyResultsError'

@@ -34,6 +34,12 @@ const Button = styled.button`
 
 export default function Search({ setErrorMessage, setMatch, setSuggestions })
 {
+  React.useEffect(() => {
+    fetch('/api')
+      .then(res => res.json())
+      .then(data => console.log(data))
+  })
+
   const [value, setValue] = useState('')
 
   const handleSubmit = (e) => {
