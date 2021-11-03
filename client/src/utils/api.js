@@ -18,7 +18,7 @@ export async function doTheySolveIt(title) {
 
 async function parseResults(results, searchTerm) {
   if (results.total_results > 50) {
-    throw new TooManyResultsError
+    throw new TooManyResultsError()
   }
 
   const titles = results.results.map(title => {
@@ -56,11 +56,13 @@ async function findExactMatches(searchTerm, titles) {
       if (title.matchesSearch(searchTerm) && title.isCorrectGenre()) {
         return title
       }
+
+      return null
     })
-    .filter(match => typeof match !== 'undefined')
+    .filter(match => typeof match !== 'undefined' && match !== null)
 
   if (matches.length === 0) {
-    throw new MatchNotFoundError
+    throw new MatchNotFoundError()
   }
 
   return matches

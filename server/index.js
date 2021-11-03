@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/api', (req, res) => {
-  res.json({message: "Heyyy hehehe ;)"})
+  res.json({message: "hey hehe"})
 })
 
 app.get('*', (req, res) => {

@@ -1,26 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Card from './Card'
 
 const ResultsContainer = styled.div`
   border:1px solid tomato
   width:tomato
 `
 
-export default function Results({ results })
+export default function Results({ match, suggestions })
 {
+    console.debug(match)
   return (
     <ResultsContainer>
-      { results.map(result => {
-        const { title, description, imageUrl } = result
-        return(<Card
-          key={title}
-          title={title}
-          description={description}
-          imageUrl={imageUrl}
-        />)
-      }) }
     </ResultsContainer>
   )
 }

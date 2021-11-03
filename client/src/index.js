@@ -15,9 +15,9 @@ const Container = styled.div`
 
 class App extends React.Component {
   state = {
-    error: '',
+    error: false,
     match: false,
-    suggestions: []
+    suggestions: false,
   }
 
   setErrorMessage = message => {
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { error, results } = this.state
+    const { error, match, suggestions } = this.state
     return(
       <Container>
         <h1>Do They Solve It?</h1>
@@ -43,9 +43,10 @@ class App extends React.Component {
           setSuggestions={this.setSuggestions}
         />
         { error && error }
-        { results &&
+        { (match || suggestions) &&
           <Results
-            results={results}
+            match={match}
+            suggestions={suggestions}
           />
         }
       </Container>

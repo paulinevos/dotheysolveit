@@ -37,7 +37,7 @@ export default function Search({ setErrorMessage, setMatch, setSuggestions })
   React.useEffect(() => {
     fetch('/api')
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => data)
   })
 
   const [value, setValue] = useState('')

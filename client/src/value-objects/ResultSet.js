@@ -16,6 +16,8 @@ export class ResultSet
       if (!suggestion instanceof Title) {
         throw new InvalidArgumentError('suggestions');
       }
+
+      return null
     })
 
     this.match = match
